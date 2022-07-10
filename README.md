@@ -19,4 +19,6 @@ System.out.println(myLambda.checker(nums));
 
 ## Solució
 
+Per fer ús de les funcions lambda, en primer lloc creem una Functional Interface anomenada `checkNumero` que emprarem com a estructura per implementar els tres mètodes demanats.
+
 Per implementar els mètodes isPrime i isPalindrome es fa ús de la API Steam de Java. S'ha creat un Java Record anomenat `Numero` per desar els retorns dels diferents mètodes i poder mostrar-los tots junts. Al mètode principal `checker` retornem una llista d'objectes `Numero`. S'ha decidit comprovar per cada enter de l'input si el seu valor és 0, i en aquest cas, mostrar per pantalla el missatge `"NOT A POSSIBLE OPTION"` i excluir-lo dels càlculs posteriors, ja que es tracta d'un input no vàlid.
