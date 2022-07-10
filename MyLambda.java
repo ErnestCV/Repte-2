@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 
 /**
  * La classe MyLambda implementa els mètodes necessaris per comprovar si un enter és parell, primer, i palíndrom,
- * implementats com funcions lambda a través de la functional interface checkNumero.
+ * implementats com funcions lambda a través de la functional interface CheckNumero.
  * El mètode principal checker retorna una llista d'objectes Numero amb aquestes tres propietats com a record.
  *
  * @author ErnestCV
@@ -15,21 +15,21 @@ public class MyLambda {
 
     //Creem la functional interface necessària per definir els mètodes demanats amb lambdes
     @FunctionalInterface
-    public interface checkNumero{
+    public interface CheckNumero{
         boolean check(int num);
     }
 
     //Comprovem si el nombre és parell
-    checkNumero isOdd = num -> (num > 0) && ((num % 2) == 0);
+    CheckNumero isOdd = num -> (num > 0) && ((num % 2) == 0);
 
     //Comprovem si el nombre és primer, mirant que no sigui divisible per cap altre nombre (excloent ell mateix i l'1)
-    checkNumero isPrime = num -> (num > 0) && IntStream.rangeClosed(2, num / 2).noneMatch(i -> num % i == 0);
+    CheckNumero isPrime = num -> (num > 0) && IntStream.rangeClosed(2, num / 2).noneMatch(i -> num % i == 0);
 
     /*
     Comprovem si el nombre és palíndrom, convertint-lo a String i comprovant de manera successiva
     que el primer i darrer dígits són iguals
     */
-    checkNumero isPalindrome = num -> {
+    CheckNumero isPalindrome = num -> {
         String str = String.valueOf(num);
         return num > 0 && IntStream.range(0, str.length() / 2)
                 .allMatch(i -> str.charAt(i) == str.charAt(str.length() - i - 1));
